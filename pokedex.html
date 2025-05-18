@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Links -->
+    <link rel="icon" href="./fivicon/favicon-16x16.png">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    
+    <!-- Main JS -->
+    <script defer src="./js/pokedex_script.js"></script>
+    <title>Pokedex</title>
+</head>
+
+<body>
+
+    <!-- Container escalável -->
+    <div class="escala-container">
+        <main>
+            <img src="./img/bola_azul.png" alt="Bola Azul" class="bola_azul">
+            <img src="#" alt="pokemon" class="pokemon_image">
+            <img src="./img/pokedex_sem_fundo.png" alt="pokedex" class="pokedex">
+
+            <h1 class="pokemon_data">
+                <span class="pokemon_number"></span> 
+                <span class="pokemon_name"></span> 
+                <span class="pokemon_desc"></span>        
+            </h1>
+
+            <h2 class="pokemon_tipo_posicao">
+                <span class="pokemon_tipo"></span>
+            </h2>
+
+            <form class="form">
+                <input type="search"
+                    class="input_search"
+                    placeholder="Nome ou Número"
+                    required />
+            </form>
+
+            <div class="buttons">
+                <button class="button btn-prev">&lt; Anterior</button>
+                <button class="button btn-next">Próximo &gt;</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Áudio da troca de Pokémon -->
+    <audio id="changeSound" src="./music/pib.mp3" preload="auto"></audio>
+
+    <!-- Música de fundo -->
+    <audio id="bgMusic" loop>
+        <source src="./music/background.mp3.mp3" type="audio/mpeg">
+        <source src="./music/background.mp3.mp3.ogg" type="audio/ogg">
+    </audio>
+</body>
+</html
