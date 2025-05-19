@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pokédex interativa com busca de Pokémons, tipos, habilidades e batalhas.">
+    
+    <title>Pokedex</title>
+
+    <!-- Favicon e CSS -->
+    <link rel="icon" href="favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="css/pokedex.css">
+
+    <!-- Font Awesome (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Script principal -->
+    <script defer src="js/pokedex-script.js"></script>
+</head>
+<body>
+    <!-- Menu Lateral -->
+    <nav class="menu-lateral">
+        <div class="logo">
+            <img src="img/pokemon_logo.png" alt="Logo Pokémon" class="logo-img">
+        </div>
+        <ul class="menu-itens">
+            <li class="menu-item"><a href="pokedex.html" class="menu-link"><i class="fas fa-search icon"></i><span class="menu-texto">Pokédex</span></a></li>
+            <li class="menu-item"><a href="pokemon.html" class="menu-link"><i class="fas fa-paw icon"></i><span class="menu-texto">Pokémons</span></a></li>
+            <li class="menu-item"><a href="tipos.html" class="menu-link"><i class="fas fa-fire icon"></i><span class="menu-texto">Tipos</span></a></li>
+            <li class="menu-item"><a href="habilidades.html" class="menu-link"><i class="fas fa-star icon"></i><span class="menu-texto">Habilidades</span></a></li>
+            <li class="menu-item"><a href="itens.html" class="menu-link"><i class="fas fa-shopping-bag icon"></i><span class="menu-texto">Itens</span></a></li>
+            <li class="menu-item"><a href="batalhas.html" class="menu-link"><i class="fas fa-trophy icon"></i><span class="menu-texto">Batalhas</span></a></li>
+            <li class="menu-item"><a href="mapa.html" class="menu-link"><i class="fas fa-map-marked-alt icon"></i><span class="menu-texto">Mapa</span></a></li>
+            <li class="menu-item"><a href="configuracoes.html" class="menu-link"><i class="fas fa-cog icon"></i><span class="menu-texto">Configurações</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="escala-container">
+        <div class="pokedex_container">
+            <main>
+                <!-- Imagens -->
+                <img src="img/bola_azul.png" alt="Bola Azul" class="bola_azul">
+                <div class="pokemon-background">
+                    <img src="" alt="Imagem do Pokémon" class="pokemon_image">
+                </div>
+                <img src="img/pokedex_sem_fundo.png" alt="Pokedex" class="pokedex">
+
+                <!-- Dados do Pokémon -->
+                <h1 class="pokemon_data">
+                    <span class="pokemon_number"></span> 
+                    <span class="pokemon_name"></span> 
+                    <span class="pokemon_desc"></span>        
+                </h1>
+
+                <!-- Tipo do Pokémon -->
+                <h2 class="pokemon_tipo_posicao">
+                    <span class="pokemon_tipo"></span>
+                </h2>
+
+                <!-- Formulário de busca -->
+                <form class="form">
+                    <input type="search" class="input_search" placeholder="Nome ou Número" required />
+                </form>
+
+                <!-- Botões de navegação -->
+                <div class="buttons">
+                    <button class="button btn-prev">&lt; Anterior</button>
+                    <button class="button btn-next">Próximo &gt;</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Áudio da troca de Pokémon -->
+    <audio id="changeSound" src="music/pib.mp3" preload="auto"></audio>
+
+    <!-- Música de fundo -->
+    <audio id="bgMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+        <source src="music/background.ogg" type="audio/ogg">
+    </audio>
+</body>
+</html>
