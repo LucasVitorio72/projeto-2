@@ -8,37 +8,54 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
+/* Barra lateral */
 .barra {
+    grid-column: 1;
     background: rgba(255, 255, 255, 0.7); 
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-
+/* Área da imagem */
 .imagem {
-    position: fixed; 
-    top: 0;
-    right: 0;
-    width: calc(100% - 250px);
+    grid-column: 2;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-
+/* Estilo da imagem */
 .imagem img {
     width: auto;
     height: 100%;
-    max-width: 100%;
-    object-fit: contain; 
-    object-position: right; 
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    body {
+        display: block;
+    }
 
+    .barra {
+        width: 100%;
+        box-shadow: none;
+    }
 
+    .imagem {
+        width: 100%;
+        height: auto;
+        position: static;
+        margin-top: 20px;
+    }
 
-
-
+    .imagem img {
+        width: 100%;
+        height: auto;
+    }
+}
