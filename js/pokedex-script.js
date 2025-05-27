@@ -205,6 +205,7 @@ inputNext?.addEventListener('click', () => {
 // Inicializa com o primeiro Pokémon
 renderPokemon(searchPokemon);
 
+//Tra
 document.addEventListener('DOMContentLoaded', function () {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const menuLinks = document.querySelectorAll('.menu-link');
