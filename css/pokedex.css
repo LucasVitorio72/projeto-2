@@ -1,8 +1,30 @@
 /* Importa a fonte Oxanium do Google Fonts com vários pesos (300 a 800) */
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
 
-/* Reset CSS - aplica a todos os elementos (* selector universal) */
-/* Reset geral e fonte padrão */
+/* Variáveis para posicionamento e dimensões */
+:root {
+    --pokedex-top: 0px;
+    --pokedex-left: 250px;
+    --pokemon-img-bottom: 49.9%;
+    --pokemon-img-left: 29.8%;
+    --desc-bottom: 110px;
+    --desc-right: -440px;
+    --tipo-top: 80.9%;
+    --tipo-right: 14%;
+    --form-top: 70%;
+    --form-left: 4.4%;
+    --buttons-bottom: 11%;
+    --buttons-left: 15%;
+    --desc-width: 280px;
+    --desc-height: 90px;
+    --bola-azul-top: -31.9%;
+    --bola-azul-right: 64.1%;
+    --bola-azul-width: 39.9%;
+    --pokemon-data-top: 61%;
+    --pokemon-data-right: 58%;
+}
+
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
@@ -10,23 +32,20 @@
     font-family: 'Oxanium', cursive;
 }
 
-/* Corpo da página */
 body {
     text-align: center;
     background: linear-gradient(to bottom, #6ab7f5, #fff);
     min-height: 100vh;
 }
 
-/* Container modular da Pokédex (permite mover tudo junto) */
 .pokedex_container {
-    position: absolute; /* Permite posicionamento manual */
-    top: 0px;
-    left: 250px;
+    position: absolute;
+    top: var(--pokedex-top);
+    left: var(--pokedex-left);
     z-index: 9999;
     text-align: center;
 }
 
-/* Container principal */
 main {
     display: inline-block;
     padding: 15px;
@@ -35,7 +54,6 @@ main {
     max-width: 1000px;
 }
 
-/* Imagem da Pokédex */
 .pokedex {
     width: 100%;
     max-width: 1000px;
@@ -43,31 +61,29 @@ main {
     z-index: 1;
 }
 
-/* Bola azul */
 .bola_azul {
     position: absolute;
-    top: -31.6%;
-    right: 64.2%;
-    width: 39.9%;
+    top: var(--bola-azul-top);
+    right: var(--bola-azul-right);
+    width: var(--bola-azul-width);
     z-index: 10;
     filter: drop-shadow(0 0 8px rgba(0, 150, 255, 0.7));
 }
 
-/* Imagem do Pokémon */
 .pokemon_image {
     position: absolute;
-    bottom: 49.9%;
-    left: 29.8%;
+    bottom: var(--pokemon-img-bottom);
+    left: var(--pokemon-img-left);
     transform: translate(-50%, 30%);
     height: 15%;
     z-index: 2;
 }
 
-/* Dados do Pokémon */
+
 .pokemon_data {
     position: absolute;
-    top: 61%;
-    right: 58%;
+    top: var(--pokemon-data-top);
+    right: var(--pokemon-data-right);
     font-weight: 600;
     color: #5c5a5a;
     font-size: clamp(9px, 5vw, 23px);
@@ -79,12 +95,11 @@ main {
     text-transform: capitalize;
 }
 
-/* Formulário de busca */
 .form {
     position: absolute;
     width: 50%;
-    top: 71%;
-    left: 4.4%;
+    top: var(--form-top);
+    left: var(--form-left);
     z-index: 2;
 }
 
@@ -102,11 +117,10 @@ main {
     z-index: 3;
 }
 
-/* Botões de navegação */
 .buttons {
     position: absolute;
-    bottom: 11%;
-    left: 15%;
+    bottom: var(--buttons-bottom);
+    left: var(--buttons-left);
     width: 65%;
     display: flex;
     gap: 30px;
@@ -132,11 +146,10 @@ main {
     transform: translateY(2px);
 }
 
-/* Tipo do Pokémon */
 .pokemon_tipo_posicao {
     position: absolute;
-    top: 80.9%;
-    right: 14%;
+    top: var(--tipo-top);
+    right: var(--tipo-right);
     font-weight: 700;
     color: #fcf9f9;
     font-size: clamp(12px, 2vw, 18px);
@@ -157,13 +170,12 @@ main {
     text-transform: capitalize;
 }
 
-/* Descrição do Pokémon */
 .pokemon_desc {
     position: absolute;
-    bottom: 113px;
-    right: -442px;
-    width: 282px;
-    height: 104px;
+    bottom: var(--desc-bottom);
+    right: var(--desc-right);
+    width: var(--desc-width);
+    height: var(--desc-height);
     padding: 12px 15px;
     box-sizing: border-box;
     font-weight: 700;
@@ -182,7 +194,6 @@ main {
     z-index: 3;
 }
 
-/* Animação da bola azul */
 @keyframes flash {
     0% { filter: brightness(1); }
     50% { filter: brightness(2); }
@@ -194,8 +205,10 @@ main {
     z-index: 15;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
+
+    
+    
     .pokemon_desc {
         width: 240px;
         height: 100px;
@@ -203,7 +216,6 @@ main {
         right: 40px;
         font-size: 13px;
     }
-
     .bola_azul {
         width: 35%;
         right: 62%;
@@ -218,7 +230,6 @@ main {
         right: 20px;
         padding: 8px 10px;
     }
-
     .bola_azul {
         width: 30%;
         right: 60%;
@@ -232,14 +243,12 @@ main {
         height: 80px;
         font-size: 12px;
     }
-
     .bola_azul {
         width: 42%;
         right: 58%;
     }
 }
 
-/* Escala responsiva opcional */
 .escala-container {
     transform-origin: top center;
 }
@@ -256,7 +265,7 @@ main {
     }
 }
 
-/* Estilos Gerais */
+/* Estilos Gerais adicionais */
 * {
     margin: 0;
     padding: 0;
@@ -270,7 +279,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Menu Lateral */
 .menu-lateral {
     width: 80px;
     height: 100vh;
@@ -336,7 +344,6 @@ body {
     opacity: 1;
 }
 
-/* Conteúdo Principal */
 .conteudo-principal {
     flex: 1;
     margin-left: 80px;
@@ -355,20 +362,16 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .menu-lateral {
         width: 60px;
     }
-    
     .menu-lateral:hover {
         width: 200px;
     }
-    
     .conteudo-principal {
         margin-left: 60px;
     }
-    
     .menu-lateral:hover ~ .conteudo-principal {
         margin-left: 200px;
     }
