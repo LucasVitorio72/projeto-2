@@ -1,106 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Pokémon</title>
-    <!-- Inclua o Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/curiosidades.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curiosidades sobre os Pokémon mais populares da primeira geração." />
+  <title>Pokémon - Curiosidades</title>
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/curiosidades.css" />
 </head>
 <body>
-    <!-- Menu Lateral -->
-    <nav class="menu-lateral">
-        <div class="logo">
-            <img src="img/pokemon_logo.png" alt="Logo Pokémon" class="logo-img">
-        </div>
-        <ul class="menu-itens">
-            <li class="menu-item"><a href="index.html" class="menu-link"><i class="fas fa-home icon"></i><span class="menu-texto">Página Inicial</span></a></li>
-            <li class="menu-item"><a href="pokedex.html" class="menu-link"><i class="fas fa-search icon"></i><span class="menu-texto">Pokédex</span></a></li>
-            <li class="menu-item"><a href="tms.html" class="menu-link"><i class="fas fa-circle icon"></i><span class="menu-texto">TMS</span></a></li>
-            <li class="menu-item"><a href="habilidades.html" class="menu-link"><i class="fas fa-star icon"></i><span class="menu-texto">Habilidades</span></a></li>
-            <li class="menu-item"><a href="itens.html" class="menu-link"><i class="fas fa-shopping-bag icon"></i><span class="menu-texto">Itens</span></a></li>
-            <li class="menu-item"><a href="batalhas.html" class="menu-link"><i class="fas fa-trophy icon"></i><span class="menu-texto">Batalhas</span></a></li>
-            <li class="menu-item"><a href="mapa.html" class="menu-link"><i class="fas fa-map-marked-alt icon"></i><span class="menu-texto">Mapa</span></a></li>
-            <li class="menu-item"><a href="configuracoes.html" class="menu-link"><i class="fas fa-cog icon"></i><span class="menu-texto">Configurações</span></a></li>
-        </ul>
-    </nav>
+  <!-- Menu Lateral -->
+  <nav class="menu-lateral">
+    <div class="logo">
+      <img src="img/pokemon_logo.png" alt="Logo Pokémon" class="logo-img" />
+    </div>
+    <ul class="menu-itens">
+      <li class="menu-item"><a href="index.html" class="menu-link"><i class="fas fa-home icon"></i><span class="menu-texto">Página Inicial</span></a></li>
+      <li class="menu-item"><a href="pokedex.html" class="menu-link"><i class="fas fa-search icon"></i><span class="menu-texto">Pokédex</span></a></li>
+      <li class="menu-item"><a href="tms.html" class="menu-link"><i class="fas fa-circle icon"></i><span class="menu-texto">TMs</span></a></li>
+      <li class="menu-item"><a href="habilidades.html" class="menu-link"><i class="fas fa-star icon"></i><span class="menu-texto">Habilidades</span></a></li>
+      <li class="menu-item"><a href="itens.html" class="menu-link"><i class="fas fa-shopping-bag icon"></i><span class="menu-texto">Itens</span></a></li>
+      <li class="menu-item"><a href="batalhas.html" class="menu-link"><i class="fas fa-trophy icon"></i><span class="menu-texto">Batalhas</span></a></li>
+      <li class="menu-item"><a href="mapa.html" class="menu-link"><i class="fas fa-map-marked-alt icon"></i><span class="menu-texto">Mapa</span></a></li>
+      <li class="menu-item"><a href="configuracoes.html" class="menu-link"><i class="fas fa-cog icon"></i><span class="menu-texto">Configurações</span></a></li>
+    </ul>
+  </nav>
 
-    <!-- Conteúdo Principal -->
-    <div class="conteudo-principal">
-        <h1>Curiosidades</h1>
+  <!-- Conteúdo Principal -->
+  <main class="conteudo-principal">
+    <header>
+      <h1>Curiosidades</h1>
+      <h2>Conheça fatos sobre os Pokémon mais populares da primeira geração</h2>
+    </header>
 
-    <h2>Aqui vai algumas curiosidades dos pokémons mais populares da primeira geração</h2>
-    <div class="charizard">
-        <img src="img/charizard.jpg" width="400" alt="charizard">
-
+    <!-- Pokémon: Charizard -->
+    <section class="pokemon_curiosidade">
+      <figure>
+        <img src="img/charizard.jpg" width="400" alt="Imagem do Pokémon Charizard" loading="lazy" />
+      </figure>
+      <article>
+        <h3>Charizard</h3>
         <ul>
-            <li>Tipo: Fogo/Voador (apesar de parecer um dragão, só ganha o tipo Dragão em formas especiais)</li>
-            <li>Não obedeceu o Ash no início: No anime, o Charizard do Ash se recusava a obedecer por se achar mais
-                forte que ele — só passou a obedecer depois de ver o Ash arriscar a vida por ele</li>
-            <li>Mega Evoluções diferentes: Charizard é um dos poucos Pokémon com duas Mega Evoluções — Mega Charizard X
-                (Fogo/Dragão) e Mega Charizard Y (Fogo/Voador), exclusivas de versões diferentes dos jogos</li>
-            <li>Inspirado em dragões ocidentais: Mesmo não sendo do tipo Dragão, seu design foi inspirado em dragões
-                clássicos das lendas europeias</li>
-            <li>Popularidade enorme: Charizard é um dos Pokémon mais populares de todos os tempos — tanto que seu card
-                raro do TCG (Base Set) é um dos mais valiosos até hoje</li>
+          <li>Tipo: Fogo/Voador. Só se torna Dragão com formas especiais.</li>
+          <li>Charizard do Ash não obedecia no início, por se achar mais forte.</li>
+          <li>Tem duas Mega Evoluções: X (Fogo/Dragão) e Y (Fogo/Voador).</li>
+          <li>Inspirado em dragões ocidentais clássicos.</li>
+          <li>É um dos Pokémon mais populares de todos os tempos.</li>
         </ul>
-    </div>
-    <div class="pikachu">
-        <img src="img/pikachu.png" width="400" alt="pikachu">
+      </article>
+    </section>
 
+    <!-- Pokémon: Pikachu -->
+    <section class="pokemon_curiosidade">
+      <figure>
+        <img src="img/pikachu.png" width="400" alt="Imagem do Pokémon Pikachu" loading="lazy" />
+      </figure>
+      <article>
+        <h3>Pikachu</h3>
         <ul>
-            <li>Mascote oficial da franquia: Pikachu é o rosto oficial do mundo Pokémon e um dos personagens mais
-                reconhecidos da cultura pop global</li>
-            <li>Baseado em um roedor: Seu design foi inspirado em um esquilo, mesmo sendo classificado como um "rato
-                elétrico" nos jogos</li>
-            <li>Tem uma linguagem própria no anime: No anime, a dubladora japonesa Ikue Ōtani faz a voz do Pikachu desde
-                o início — e cada "Pika" e "Chu" tem significados diferentes entre os Pokémon</li>
-            <li>Ash se recusou a evoluí-lo: Em um episódio clássico, Ash recebeu uma Pedra do Trovão para evoluí-lo em
-                Raichu, mas Pikachu preferiu ficar como estava, valorizando sua amizade com Ash</li>
-            <li>Pikachu já teve "gordura extra": Nas primeiras gerações, Pikachu era desenhado bem mais gordinho. Com o
-                tempo, seu design foi ficando mais esbelto</li>
+          <li>Mascote oficial da franquia.</li>
+          <li>Inspirado em esquilos, mas conhecido como "rato elétrico".</li>
+          <li>Voz original feita por Ikue Ōtani desde o início do anime.</li>
+          <li>Ash recusou evoluí-lo para Raichu, por respeito à amizade.</li>
+          <li>Design foi ficando mais esbelto com o tempo.</li>
         </ul>
-    </div>
-    <div class="gengar">
-        <img src="img/gengar.png" width="400">
-        <ul>
-            <li>Primeiro Pokémon Fantasma registrado: Gengar é o primeiro Pokémon do tipo Fantasma na Pokédex (número
-                #094), e um dos mais icônicos desse tipo</li>
-            <li>Sombra viva: Seu conceito é baseado em uma sombra viva — inclusive, a Pokédex sugere que ele pode ser a
-                sombra de um outro Pokémon, como o Clefable (uma teoria famosa entre fãs)</li>
-            <li>Sorriso sinistro: Gengar está sempre com um sorriso malicioso, refletindo sua natureza travessa e
-                brincalhona — ele adora assustar pessoas e outros Pokémon</li>
-            <li>Ganha forma Gigantamax: Em Pokémon Sword e Shield, Gengar recebeu uma forma Gigantamax onde sua boca se
-                abre como um portal gigante para outra dimensão</li>
-            <li>Pode baixar a temperatura: Segundo a Pokédex, quando Gengar aparece, a temperatura do ambiente pode cair
-                repentinamente — como um verdadeiro espírito maligno</li>
-        </ul>
-    </div>
-    <div class="snorlax">
-        <img src="img/snorlax.png" width="400" alt="snorlax">
-        <ul>
-            <li>O dorminhoco da franquia: Snorlax é conhecido por dormir quase o tempo todo. Ele só acorda para comer...
-                e come mais de 400 kg de comida por dia!</li>
-            <li>Bloqueia caminhos nos jogos: Nas primeiras gerações, Snorlax aparece deitado no meio do caminho,
-                forçando os jogadores a usar a Poké Flauta para acordá-lo e enfrentá-lo</li>
-            <li>Inspiração real: O criador de Snorlax, Ken Sugimori, se inspirou em um colega de trabalho da Game Freak,
-                conhecido por ser grandalhão e adorar dormir</li>
-            <li>Extremamente resistente: Apesar da aparência preguiçosa, Snorlax tem altíssimo HP e ataque, sendo um
-                verdadeiro tanque em batalhas</li>
-            <li>Forma Gigantamax: Em Sword e Shield, Snorlax ganhou uma forma Gigantamax com uma floresta crescendo na
-                barriga — como se tivesse dormido tanto que a natureza cresceu sobre ele!</li>
-        </ul>
-    </div>
-    </div>
+      </article>
+    </section>
 
-    <script src="js/index.js"></script>
-    
-   
-      
+    <!-- Pokémon: Gengar -->
+    <section class="pokemon_curiosidade">
+      <figure>
+        <img src="img/gengar.png" width="400" alt="Imagem do Pokémon Gengar" loading="lazy" />
+      </figure>
+      <article>
+        <h3>Gengar</h3>
+        <ul>
+          <li>Primeiro Pokémon Fantasma na Pokédex (#094).</li>
+          <li>Considerado uma sombra viva, talvez de um Clefable.</li>
+          <li>Sempre com um sorriso travesso e assustador.</li>
+          <li>Forma Gigantamax abre a boca como um portal sombrio.</li>
+          <li>Sua presença faz a temperatura do ambiente cair.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Pokémon: Snorlax -->
+    <section class="pokemon_curiosidade">
+      <figure>
+        <img src="img/snorlax.png" width="400" alt="Imagem do Pokémon Snorlax" loading="lazy" />
+      </figure>
+      <article>
+        <h3>Snorlax</h3>
+        <ul>
+          <li>Dorme quase o tempo todo. Acorda só para comer (mais de 400 kg).</li>
+          <li>Bloqueia caminhos nos jogos iniciais.</li>
+          <li>Inspirado em um colega sonolento da Game Freak.</li>
+          <li>Tem altíssimo HP e ataque, sendo um verdadeiro tanque.</li>
+          <li>Sua forma Gigantamax tem uma floresta crescendo sobre ele.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <script src="js/index.js"></script>
 </body>
 </html>
 
-    
 
  

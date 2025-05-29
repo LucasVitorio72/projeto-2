@@ -1,23 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #6ab7f5, #fff);
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    font-family: Arial, sans-serif;
-}
-
-
-.barra {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-
-
-/* Estilos Gerais */
+/* Reset e base */
 * {
     margin: 0;
     padding: 0;
@@ -26,10 +7,20 @@ body {
 }
 
 body {
-    display: flex;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #6ab7f5, #fff);
     min-height: 100vh;
-    background-color: #f5f5f5;
+    display: flex;
 }
+.conteudo-principal {
+  background-color: rgba(255, 255, 255, 0.9); /* branco levemente translúcido */
+  padding: 2rem; /* espaço interno */
+  margin: 2rem; /* espaço externo */
+  border-radius: 16px; /* cantos arredondados */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* sombra leve */
+}
+
 
 /* Menu Lateral */
 .menu-lateral {
