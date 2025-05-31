@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de loguin</title>
+      <link rel="stylesheet" href="css/formulario.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Loguin</h2>
+    
+    <form action="https://www.w3schools.com/action_page.php">
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+    </div>
+    <div id="dadosSalvos"></div>
+
+    <script>
+         // Quando o formulário for enviado
+    document.getElementById("formLoguin").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita que a página seja recarregada
+
+      // Pegamos os valores digitados nos campos
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
+
+      // Salvamos os valores no armazenamento local do navegador
+      localStorage.setItem("usuario", usuario);
+      localStorage.setItem("senha", senha);
+
+      // Mostramos uma mensagem de sucesso
+      alert("Dados salvos com sucesso!");
+
+      // Atualiza a exibição dos dados salvos na tela
+      mostrarDadosSalvos();
+    });
+
+    // Função que recupera os dados salvos e exibe na tela
+    function mostrarDadosSalvos() {
+      // Pegamos os dados do localStorage (se existirem)
+      const usuarioSalvo = localStorage.getItem("usuario");
+      const senhaSalva = localStorage.getItem("senha");
+
+      // Verifica se existe algo salvo
+      if (usuarioSalvo && senhaSalva) {
+        // Monta o conteúdo em HTML para mostrar na tela
+        document.getElementById("dadosSalvos").innerHTML = `
+          <h3>Dados salvos:</h3>
+          <p><strong>Usuário:</strong> ${usuarioSalvo}</p>
+          <p><strong>Senha:</strong> ${senhaSalva}</p>
+        `;
+      }
+    }
+
+    // Ao carregar a página, mostramos os dados salvos (se houver)
+    mostrarDadosSalvos();
+  </script>
+</body>
+</html>

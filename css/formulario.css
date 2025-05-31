@@ -1,0 +1,31 @@
+form {
+    background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Estilo da tela */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #63b3ed, #ffffff);
+  font-family: Arial, sans-serif;
+}
+
+/* Centraliza e estiliza a caixa do conteúdo */
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Espaçamento entre o título e o formulário */
+.container h2 {
+  margin-bottom: 20px;
+}

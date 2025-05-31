@@ -158,6 +158,22 @@ body {
     display: none
 }
 
+.botao-loguin {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.botao-loguin:hover {
+  background-color: #ffaa00;
+}
 
 
 
