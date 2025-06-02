@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GBA-wasm</title>
+
+    <!-- Font Awesome + Estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- Shaders -->
+    <script id="2d-vertex-shader" type="x-shader/x-vertex">
+      attribute vec2 a_position;
+      varying highp vec2 v_textureCoord;
+      void main() {
+        gl_Position = vec4((a_position.x * 2.0 * 1.0666) - 1.0, (a_position.y * 2.0 * 1.6) * -1.0 + 1.0, 0, 1);
+        v_textureCoord = vec2(a_position.x, a_position.y);
+      }
+    </script>
+    <script id="2d-fragment-shader" type="x-shader/x-fragment">
+      varying highp vec2 v_textureCoord;
+      uniform sampler2D u_sampler;
+      void main(void) {
+        gl_FragColor = texture2D(u_sampler, vec2(v_textureCoord.s, v_textureCoord.t));
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- MENU LATERAL -->
+    <nav class="menu-lateral">
+      <div class="logo">
+        <img src="img/pokemon_logo.png" alt="Logo Pokémon" class="logo-img">
+      </div>
+       <ul class="menu-itens">
+      <li class="menu-item"><a href="/index.html" class="menu-link"><i class="fas fa-home icon"></i><span class="menu-texto">Página Inicial</span></a></li>
+      <li class="menu-item"><a href="pokedex.html" class="menu-link"><i class="fas fa-search icon"></i><span class="menu-texto">Pokédex</span></a></li>
+      <li class="menu-item"><a href="tms.html" class="menu-link"><i class="fa-solid fa-compact-disc icon"></i><span class="menu-texto">TMS</span></a></li>
+      <li class="menu-item"><a href="curiosidades.html" class="menu-link"><i class="fas fa-question-circle fa-5x icon"></i><span class="menu-texto">Curiosidades</span></a></li>
+      <li class="menu-item"><a href="cenas.html" class="menu-link"><i class="fa fa-film fa-4x icon"></i><span class="menu-texto">Cenas</span></a></li>
+      <li class="menu-item"><a href="itens.html" class="menu-link"><i class="fas fa-shopping-bag icon"></i><span class="menu-texto">Itens</span></a></li>
+      <li class="menu-item"><a href="batalhas.html" class="menu-link"><i class="fas fa-trophy icon"></i><span class="menu-texto">Batalhas</span></a></li>
+      <li class="menu-item"><a href="configuracoes.html" class="menu-link"><i class="fas fa-cog icon"></i><span class="menu-texto">Configurações</span></a></li>
+    </ul>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="pagina-conteudo-wrapper">
+      <div class="pixels" id="gba-canvas-area"></div>
+
+      <div class="ui" style="display: none;">
+        <div class="ui-border-1"></div>
+
+        <div class="ui-border-2">
+          <section class="load-rom-section">
+            <h2>Carregar ROM de Gameboy Advance</h2>
+            <div class="gap"></div>
+            <label class="btn" for="load-rom-from-file">Do Arquivo</label>
+            <div class="gap"></div>
+            <form>
+              <input id="load-rom-from-file" type="file" onchange="window.loadRomFromFile(event);" />
+            </form>
+          </section>
+
+          <section class="paused-section" style="display: none;">
+            <h2>Pausado</h2>
+            <p style="padding-top: 8px;">
+              Pressione <span class="unpause-key-prompt"></span> para continuar.
+            </p>
+          </section>
+
+          <section class="savegames-section">
+            <h2>Saves</h2>
+            <div class="gap"></div>
+            <div class="saves-list"></div>
+            <div class="gap"></div>
+            <label class="btn" for="import-save-file">Importar Save</label>
+            <form>
+              <input id="import-save-file" type="file" onchange="vbaSaves.onFileImportInputChanged(event, window.vbaUI.reset.bind(vbaUI));" />
+            </form>
+          </section>
+
+          <section>
+            <h2>Teclas de Atalho</h2>
+            <div class="gap"></div>
+            <div class="keyboard-bindings"></div>
+            <div class="gap"></div>
+            <button class="btn reset-bindings-button" onclick="window.vbaUI.resetBindings();">Resetar Teclas</button>
+          </section>
+        </div>
+      </div>
+
+      <div class="ctrl_div"></div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="meuModal">
+      <div class="modal-background"></div>
+      <div class="modal-body">
+        <h2 class="modal-title">Título</h2>
+        <div class="gap"></div>
+        <p class="modal-text">Texto</p>
+        <div class="gap"></div>
+        <div class="modal-progress"></div>
+        <input class="modal-input" />
+        <div class="modal-buttons">
+          <button class="btn modal-button-left">Esquerda</button>
+          <button class="btn modal-button-right">Direita</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFORMAÇÕES DE PERFORMANCE -->
+    <div class="perf" style="display: none;">
+      <span class="perf-left">Game</span><span class="perf-right perf-game">-</span><br />
+      <span class="perf-left">Velocidade</span><span class="perf-right perf-percentage">-</span><br />
+      <span class="perf-left">Renderizações no Tempo</span><span class="perf-right perf-render-deadlines">-</span><br />
+      <span class="perf-left">Eventos de Áudio no Tempo</span><span class="perf-right perf-audio-deadlines">-</span><br />
+      <span class="perf-left">Timesteps/Segundo</span><span class="perf-right perf-timesteps">-</span><br />
+      <span class="perf-left">Atraso de Áudio</span><span class="perf-right perf-audio-lag">-</span><br />
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="./js/index.js"></script>
+    <script src="./app.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,412 @@
+/* Estilos base para html e body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+  background: linear-gradient(to bottom, #4a90e2, #6ab7f5, #ffffff) no-repeat fixed;
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 13px;
+  overflow-x: hidden;
+}
+
+
+/* Menu Lateral - Versão Redesenha */
+.menu-lateral {
+  width: 80px;
+  height: 100%;
+  background-color: #2c3e50;
+  color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-lateral:hover {
+    width: 250px;
+}
+
+/* Logo e Imagem */
+.logo {
+  padding: 20px 10px;
+  text-align: center;
+  border-bottom: 1px solid #34495e;
+  transition: padding 0.3s ease;
+}
+
+.logo-img {
+  width: 68px;
+  transition: width 0.3s ease;
+}
+
+.menu-lateral:hover .logo-img,
+.menu-lateral.expandido .logo-img {
+  width: 100px;
+}
+
+/* Itens do Menu */
+.menu-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: calc(100% - 81px);
+  overflow-y: auto;
+}
+
+.menu-item {
+  padding: 15px 20px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.menu-item:hover {
+  background-color: #34495e;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  height: 100%;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  min-width: 25px;
+  text-align: center;
+}
+
+.menu-texto {
+  opacity: 0;
+  transition: opacity 0.3s 0.1s; /* Delay para sincronizar com a expansão */
+}
+
+.menu-lateral:hover .menu-texto,
+.menu-lateral.expandido .menu-texto {
+  opacity: 1;
+}
+
+.menu-lateral:hover .menu-texto {
+    opacity: 1;
+}
+
+/* --- Wrapper para o Conteúdo Principal da Página --- */
+/* Este wrapper deve envolver todo o conteúdo que NÃO é o menu-lateral no seu HTML */
+.pagina-conteudo-wrapper {
+  margin-left: 80px; /* Espaço para o menu lateral inicial (igual à largura do .menu-lateral) */
+  width: calc(100% - 80px); /* Ocupa o restante da largura */
+  min-height: 100vh; /* Garante que o wrapper ocupe pelo menos toda a altura da tela */
+  padding: 20px; /* Espaçamento interno geral para o conteúdo */
+  box-sizing: border-box; /* Padding não aumenta o tamanho total do elemento */
+  transition: margin-left 0.3s ease, width 0.3s ease; /* Animação suave ao expandir/encolher menu */
+
+  /* Usar Flexbox para centralizar o conteúdo principal (ex: .ui-border-2) dentro deste wrapper */
+  display: flex;
+  flex-direction: column; /* Empilha os filhos diretos verticalmente */
+  align-items: center;    /* Centraliza os filhos diretos horizontalmente */
+  justify-content: center; /* Centraliza os filhos diretos verticalmente */
+}
+
+/* Ajuste do wrapper quando o menu lateral expande */
+/* Este seletor funciona se .pagina-conteudo-wrapper for o irmão adjacente ao .menu-lateral no HTML */
+.menu-lateral:hover + .pagina-conteudo-wrapper {
+  margin-left: 250px; /* Espaço para o menu lateral expandido */
+  width: calc(100% - 250px);
+}
+
+/* --- Estilos do Conteúdo Principal (Emulador GBA e UI) --- */
+/* O canvas e seus controles devem estar DENTRO do .pagina-conteudo-wrapper no HTML */
+
+.canvas-container { /* Crie um container para o canvas se quiser mais controle */
+  /* Exemplo: para centralizar o canvas se ele tiver largura fixa */
+  /* width: 480px; */ /* Ou a largura desejada */
+  /* margin-bottom: 20px; */ /* Espaço abaixo do canvas */
+}
+
+canvas {
+  display: block; /* Remove espaços extras e permite margens */
+  /* Suas dimensões originais, mas considere torná-las responsivas se necessário */
+  width: 480px;
+  height: 320px;
+  /* Se .canvas-container for usado e tiver largura fixa, 'margin: 0 auto;' no canvas o centraliza nele */
+  margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona margem inferior */
+  /* position: relative; */ /* Mantém no fluxo normal */
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.2); */ /* Opcional: sombra para o canvas */
+}
+
+.ui {
+  color: #2c3e50;
+  width: 100%; /* Ocupa a largura disponível no .pagina-conteudo-wrapper */
+  max-width: 1200px; /* Limita a largura máxima da UI principal */
+  /* display: flex; */ /* Removido para permitir que .ui-border-2 use sua própria margem se necessário */
+  /* justify-content: center; */
+}
+
+.ui-border-1 {
+  /* Se este elemento existir e precisar de layout específico, ajuste aqui. */
+  /* Ex: margin-bottom: 20px; text-align: center; */
+}
+
+.ui-border-2 { /* Este parece ser o container principal dos controles e informações */
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem 3rem;
+  /* margin: 2rem auto; */ /* O flex do .pagina-conteudo-wrapper já centraliza.
+                             Se .ui-border-2 não for filho direto, esta margem pode ser útil.
+                             Se for filho direto, pode ser removida ou ajustada (ex: apenas margem vertical) */
+  margin-top: 0; /* Se centralizado pelo flex pai, a margem superior pode não ser necessária */
+  margin-bottom: 2rem; /* Exemplo de margem inferior */
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  position: relative; /* Para contexto de posicionamento de filhos, se houver */
+  width: 100%; /* Ocupa a largura do pai (.ui ou .pagina-conteudo-wrapper) até max-width */
+  box-sizing: border-box;
+
+  /* Para garantir que não exceda a altura visível e adicione scroll se necessário */
+  /* max-height: calc(100vh - 120px); */ /* Ajuste conforme necessário (100vh - paddings - outras margens) */
+  /* overflow-y: auto; */ /* Adiciona scroll vertical se o conteúdo interno for maior */
+}
+
+section {
+  margin: 1.5rem 0px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #e74c3c;
+  margin: 25px 0 15px;
+  text-align: center;
+  font-style: normal;
+  text-decoration: none;
+}
+
+table {
+  width: 95%;
+  margin: 25px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  overflow: hidden; /* Para o border-radius funcionar nas bordas da tabela */
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+th {
+  background-color: #e74c3c;
+  color: white;
+  font-weight: 500;
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+td {
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tr:hover {
+  background-color: #f1f5fd;
+}
+
+p,
+label {
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #34495e;
+}
+
+.gap {
+  margin-top: 10px;
+}
+
+input[type="file"] {
+  position: absolute;
+  left: -1000000px; /* Técnica para esconder o input original */
+}
+
+#load-rom-from-url {
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid #e74c3c;
+  margin-left: 16px;
+  padding: 8px 13px;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #e74c3c;
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 80px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn:hover {
+  cursor: pointer; /* Já definido, mas ok */
+  border-color: #c0392b;
+  background-color: #c0392b;
+}
+
+.empty-table {
+  font-size: 0.9rem;
+  color: #34495e;
+}
+
+a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.report-bug-button {
+  font-size: 0.9rem;
+}
+
+/* --- Modal --- */
+.modal {
+  display: none; /* POR DEFEITO, O MODAL FICA ESCONDIDO */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  /* display: flex; */ /* REMOVA OU COMENTE ESTA LINHA SE EXISTIR AQUI */
+  align-items: center;
+  justify-content: center;
+  /* Adicione 'background-color: rgba(0, 0, 0, 0.5);' se quiser que o .modal-background seja parte do .modal
+     em vez de um elemento separado, mas a estrutura atual com .modal-background é comum. */
+}
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.8;
+  background-color: black;
+  cursor: pointer; /* Para indicar que se pode clicar para fechar */
+}
+
+.modal-body {
+  width: 400px;
+  position: relative;
+  z-index: 2001; /* Acima do background */
+  border: 1px solid #e74c3c;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Estilo para o novo botão de fechar */
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem; /* Tamanho do 'X' */
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close-button:hover {
+  color: #333;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  margin-top: 10px; /* Adicionado para não colar no botão fechar */
+  text-align: center;
+}
+
+/* ... restante dos seus estilos para .modal-buttons, .modal-input, etc. ... */
+
+.modal-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-button-left,
+.modal-button-right {
+  /* Herdarão o estilo .btn se a classe for aplicada no HTML */
+  margin: 6px 4px 3px 4px;
+}
+
+.modal-progress {
+  height: 6px;
+  margin-bottom: 15px;
+  background-color: #f1c40f;
+  border-radius: 3px;
+}
+
+.modal-input {
+  width: 100%; /* Ocupa toda a largura do .modal-body */
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 0 15px 0;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.modal-input:focus {
+  border-color: #e74c3c;
+  outline: none;
+}
+
+/* --- Informações de Performance --- */
+/* .perf também usa position:fixed, posicionando-se em relação à viewport */
+.perf {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  padding: 8px 12px;
+  margin: 4px; /* Pequena margem da borda da tela */
+  background-color: rgba(44, 62, 80, 0.85);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  z-index: 1500; /* Acima do conteúdo principal, abaixo do modal */
+}
+
+.perf-left {
+  display: inline-block;
+  width: 200px; /* Ajuste conforme necessário */
+}
