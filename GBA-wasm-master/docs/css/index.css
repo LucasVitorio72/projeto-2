@@ -31,7 +31,7 @@ body {
 }
 
 .menu-lateral:hover {
-    width: 250px;
+  width: 250px;
 }
 
 /* Logo e Imagem */
@@ -66,6 +66,7 @@ body {
   transition: background-color 0.3s;
   cursor: pointer;
   white-space: nowrap;
+  font-size: 1.2rem; /* Aumenta o tamanho da fonte */
 }
 
 .menu-item:hover {
@@ -89,7 +90,8 @@ body {
 
 .menu-texto {
   opacity: 0;
-  transition: opacity 0.3s 0.1s; /* Delay para sincronizar com a expansão */
+  transition: opacity 0.3s 0.1s;
+  font-size: 1.7rem; /* Aumenta o tamanho da fonte do texto */
 }
 
 .menu-lateral:hover .menu-texto,
@@ -97,9 +99,6 @@ body {
   opacity: 1;
 }
 
-.menu-lateral:hover .menu-texto {
-    opacity: 1;
-}
 
 /* --- Wrapper para o Conteúdo Principal da Página --- */
 /* Este wrapper deve envolver todo o conteúdo que NÃO é o menu-lateral no seu HTML */
@@ -176,7 +175,7 @@ canvas {
   /* max-height: calc(100vh - 120px); */ /* Ajuste conforme necessário (100vh - paddings - outras margens) */
   /* overflow-y: auto; */ /* Adiciona scroll vertical se o conteúdo interno for maior */
 }
-
+    
 section {
   margin: 1.5rem 0px;
 }
@@ -258,11 +257,12 @@ input[type="file"] {
   color: white;
   font-weight: 600;
   font-size: 1rem;
-  min-width: 80px;
+  min-width: 1078px;
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
+
 }
 
 .btn:hover {
